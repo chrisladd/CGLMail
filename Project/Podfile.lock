@@ -1,0 +1,14 @@
+PODS:
+  - CGLMail (0.1.0)
+
+DEPENDENCIES:
+  - CGLMail (from `../`)
+
+EXTERNAL SOURCES:
+  CGLMail:
+    :path: ../
+
+SPEC CHECKSUMS:
+  CGLMail: bf713022c750d9eaad260bddd5dc8be459ef9de8
+
+COCOAPODS: 0.29.0
