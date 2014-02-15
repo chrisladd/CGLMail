@@ -5,22 +5,19 @@
 
 ## Usage
 
-To run the example project; clone the repo, and run `pod install` from the Project directory first.
+CGLMail makes it easy to send email from any class in your app, without implementing the `MFMailComposeViewControllerDelegate` protocol all over the place. It was initially written to centralize the submission of feedback emails into one class. For example, 
 
-## Requirements
+    UIViewController *mailVC = [CGLMailHelper supportMailViewControllerWithRecipient:@"support@support.com" subject:@"Support Email" completion:nil];
 
-## Installation
+Would yield a view controller that looks like this:
 
-CGLMail is available through [CocoaPods](http://cocoapods.org), to install
-it simply add the following line to your Podfile:
+![Support Screenshot](https://raw.github.com/chrisladd/CGLMail/master/screenshots/support-screenshot.png)
 
-    pod "CGLMail"
+Whereas this:
 
-## Author
+    UIViewController *mailVC = [CGLMailHelper mailViewControllerWithRecipients:@[@"my@mom.com"] subject:@"Hi Mom!" message:@"Hi Mom, \n\nJust wanted to check in and say hello!\n\nLove, \nChris" isHTML:NO includeAppInfo:NO completion:nil];
 
-Chris Ladd, Christopher.Ladd@nytimes.com
+Would yield one that looks more like this:
 
-## License
-
-
+![Support Screenshot](https://raw.github.com/chrisladd/CGLMail/master/screenshots/email-screenshot.png)
 
