@@ -1,13 +1,12 @@
-# CGLMail
-
-[![Version](http://cocoapod-badges.herokuapp.com/v/CGLWebView/badge.png)](http://cocoadocs.org/docsets/CGLWebView)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/CGLWebView/badge.png)](http://cocoadocs.org/docsets/CGLWebView)
-
 ## Usage
 
 CGLMail makes it easy to send email from any class in your app, without implementing the `MFMailComposeViewControllerDelegate` protocol all over the place. It was initially written to centralize the submission of feedback emails into one class. For example, 
 
-    UIViewController *mailVC = [CGLMailHelper supportMailViewControllerWithRecipient:@"support@support.com" subject:@"Support Email" completion:nil];
+````objc
+UIViewController *mailVC = [CGLMailHelper supportMailViewControllerWithRecipient:@"support@support.com" 
+                                                                         subject:@"Support Email" 
+                                                                      completion:nil];
+````
 
 Would yield a view controller that looks like this:
 
@@ -15,7 +14,14 @@ Would yield a view controller that looks like this:
 
 Whereas this:
 
-    UIViewController *mailVC = [CGLMailHelper mailViewControllerWithRecipients:@[@"my@mom.com"] subject:@"Hi Mom!" message:@"Hi Mom, \n\nJust wanted to check in and say hello!\n\nLove, \nChris" isHTML:NO includeAppInfo:NO completion:nil];
+````objc
+UIViewController *mailVC = [CGLMailHelper mailViewControllerWithRecipients:@[@"my@mom.com"] 
+                                                                   subject:@"Hi Mom!" 
+                                                                   message:@"Hi Mom, \n\nJust wanted to check in and say hello!\n\nLove, \nChris" 
+                                                                    isHTML:NO 
+                                                            includeAppInfo:NO 
+                                                                completion:nil];
+````
 
 Would yield one that looks more like this:
 
