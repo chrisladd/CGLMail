@@ -133,6 +133,7 @@
             break;
         case MFMailComposeResultFailed:
             desc = @"Failed";
+            break;
         default:
             desc = @"Unknown";
             break;
