@@ -40,3 +40,7 @@ Which would yield a view controller that looks like this:
 
 ![Support Screenshot](https://raw.github.com/chrisladd/CGLMail/master/screenshots/support-screenshot.png)
 
+## Safety First
+
+**Note** that  CGLMailHelper will return nil if `[MFMailComposeViewController canSendMail]` returns `NO`, e.g. if the user has not yet set up her email address. **Be sure to check for nil!** UIKit will throw an exception if you try to present a nil view controller.
+
