@@ -38,9 +38,9 @@
     NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
     NSString *deviceName = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? @"iPad" : @"iPhone";
 
-    
-    NSString *message = [NSString stringWithFormat:@"\n\n\n\n.....................................\nMy App: %@\nMy Version: %@\nMy iOS: %@ %@\n..................................", prodName, prodVersion, deviceName, currSysVer];
-    
+
+    NSString *message = [NSString stringWithFormat:@"\n\n\n\n..................................\nMy App: %@\nMy Version: %@\nMy iOS: %@ %@\n..................................", prodName, prodVersion, deviceName, currSysVer];
+
     return message;
 }
 
