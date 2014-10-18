@@ -34,7 +34,7 @@
     NSBundle *bundle = [NSBundle mainBundle];
     NSDictionary *info = [bundle infoDictionary];
     NSString *prodName = info[@"CFBundleDisplayName"];
-    NSString *prodVersion = info[@"CFBundleVersion"];
+    NSString *prodVersion = info[@"CFBundleShortVersionString"];
     NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
     NSString *deviceName = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? @"iPad" : @"iPhone";
 
