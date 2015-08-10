@@ -30,6 +30,12 @@
 
 @implementation CGLMailHelper
 
+- (UIViewController *)appleMailViewController {
+    UIViewController *viewController = [[self class] mailViewControllerWithRecipients:self.recipients subject:self.subject message:self.messageBody isHTML:self.isHTML includeAppInfo:self.includeAppInfo completion:self.completion];
+    
+    return viewController;
+}
+
 + (NSString *)appInfo {
     NSBundle *bundle = [NSBundle mainBundle];
     NSDictionary *info = [bundle infoDictionary];
@@ -167,6 +173,19 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No Mail Available", @"No Mail Available") message:NSLocalizedString(@"It appears you have not set up an email account on this device.", @"Set up account message.") delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles:nil];
     
     [alert show];
+}
+
+- (BOOL)prefersGmail {
+#warning implement a user-specified setting to allow setting a preferred email client
+//    http://tom.scogland.com/blog/2013/01/29/gmail-url-scheme/
+    return NO;
+}
++ (CGLMailHelperClientPreference)clientPreference {
+    return CGLMailHelperClientPreferenceAppleMail;
+}
+
++ (void)setClientPreference:(CGLMailHelperClientPreference)preference {
+#warning implement
 }
 
 @end

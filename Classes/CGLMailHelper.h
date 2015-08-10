@@ -20,6 +20,13 @@
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
 
+typedef NS_ENUM(NSInteger, CGLMailHelperClientPreference) {
+    CGLMailHelperClientPreferenceAppleMail,
+    CGLMailHelperClientPreferenceGMail
+};
+
+
+
 typedef void(^CGLMailHelperCompletionBlock)(NSString *result, NSError *error);
 
 /**
@@ -27,6 +34,20 @@ typedef void(^CGLMailHelperCompletionBlock)(NSString *result, NSError *error);
  *
 */
 @interface CGLMailHelper : NSObject
+@property (nonatomic, copy) NSArray *recipients;
+@property (nonatomic, copy) NSString *subject;
+@property (nonatomic, copy) NSString *messageBody;
+@property (nonatomic, copy) CGLMailHelperCompletionBlock completion;
+@property (nonatomic) BOOL isHTML;
+@property (nonatomic) BOOL includeAppInfo;
+
+- (UIViewController *)appleMailViewController;
+
++ (CGLMailHelperClientPreference)clientPreference;
+
++ (void)setClientPreference:(CGLMailHelperClientPreference)preference;
+
+#pragma mark - Convenience class methods
 
 /**
  *  Convenience method to return a single mail view controller, given a single recipient and a subject.
