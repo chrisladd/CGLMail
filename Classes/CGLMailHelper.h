@@ -21,8 +21,8 @@
 //    THE SOFTWARE.
 
 typedef NS_ENUM(NSInteger, CGLMailHelperClientPreference) {
-    CGLMailHelperClientPreferenceAppleMail,
-    CGLMailHelperClientPreferenceGMail
+    CGLMailHelperClientPreferenceAppleMail = 0,
+    CGLMailHelperClientPreferenceGMail = 1
 };
 
 

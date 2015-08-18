@@ -24,6 +24,8 @@
 #import "CGLMailHelper.h"
 #import <MessageUI/MessageUI.h>
 
+NSString * const CGLMailHelperClientPreferenceDefaultsKey = @"CGLMail_ClientPreference";
+
 @interface CGLMailHelper() <MFMailComposeViewControllerDelegate>
 @property (nonatomic) NSMutableDictionary *completionDictionary;
 @end
@@ -176,16 +178,19 @@
 }
 
 - (BOOL)prefersGmail {
-#warning implement a user-specified setting to allow setting a preferred email client
-//    http://tom.scogland.com/blog/2013/01/29/gmail-url-scheme/
+    if ([[self class] clientPreference] == CGLMailHelperClientPreferenceGMail) {
+        return YES;
+    }
+
     return NO;
 }
+
 + (CGLMailHelperClientPreference)clientPreference {
-    return CGLMailHelperClientPreferenceAppleMail;
+    return [[NSUserDefaults standardUserDefaults] integerForKey:CGLMailHelperClientPreferenceDefaultsKey];
 }
 
 + (void)setClientPreference:(CGLMailHelperClientPreference)preference {
-#warning implement
+    [[NSUserDefaults standardUserDefaults] setInteger:preference forKey:CGLMailHelperClientPreferenceDefaultsKey];
 }
 
 @end
